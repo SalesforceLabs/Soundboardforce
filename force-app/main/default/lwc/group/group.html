@@ -1,0 +1,64 @@
+<!--
+  Copyright (c) 2020, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<template>
+  <div class="member-count">{memberMessage}</div>
+
+  <lightning-layout horizontal-align="spread">
+    <lightning-layout-item size="6" class="add-button-wrapper">
+      <button
+        class="adduser slds-button slds-button_neutral"
+        onclick={handleAddMemberVisible}
+        disabled={isGroupFull}
+      >
+        <svg
+          class="slds-button__icon slds-button__icon_left"
+          aria-hidden="true"
+        >
+          <use
+            xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#adduser"
+          ></use></svg
+        ><span class="button-label">{label.Add_member}</span>
+      </button>
+    </lightning-layout-item>
+
+    <lightning-layout-item size="6" class="delete-button-wrapper">
+      <button
+        class="deletegroup slds-button slds-button_neutral"
+        onclick={handleGroupDelete}
+        data-value={group.g.Id}
+      >
+        <svg
+          class="slds-button__icon slds-button__icon_left"
+          aria-hidden="true"
+        >
+          <use
+            xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#delete"
+          ></use></svg
+        ><span class="button-label">{label.Delete_group}</span>
+      </button>
+    </lightning-layout-item>
+  </lightning-layout>
+
+  <template if:true={isAddingMember}>
+    <c-lookup
+      filter-list={group.members}
+      skip-yourself="true"
+      onoptionselect={handleOptionSelect}
+    ></c-lookup>
+  </template>
+
+  <div if:true={group.members.length} class="slds-m-top_small">
+    <template for:each={group.members} for:item="member">
+      <c-group-member
+        key={member.Id}
+        member={member}
+        onmemberdelete={handleMemberDelete}
+      ></c-group-member>
+    </template>
+  </div>
+</template>

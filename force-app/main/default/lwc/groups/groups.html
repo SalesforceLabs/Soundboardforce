@@ -1,0 +1,62 @@
+<!--
+  Copyright (c) 2020, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<template>
+  <button
+    class="addgroup slds-button slds-button_neutral"
+    onclick={handleAddGroupVisible}
+  >
+    <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+      <use
+        xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#add"
+      ></use></svg
+    ><span class="button-label">{label.Add_group}</span>
+  </button>
+
+  <lightning-layout
+    if:true={isAddingGroup}
+    horizontal-align="spread"
+    class="slds-m-top_small"
+  >
+    <lightning-layout-item flexibility="grow">
+      <lightning-input
+        class="newName"
+        variant="label-hidden"
+        autocomplete="off"
+        max-length="80"
+        value={newName}
+        onkeyup={handleKeyUp}
+      ></lightning-input>
+    </lightning-layout-item>
+
+    <lightning-layout-item class="slds-p-left_xx-small">
+      <button
+        class="slds-button slds-button_neutral slds-m-left_xx-small"
+        onclick={handleGroupAdd}
+        disabled={isNewNameInvalid}
+      >
+        <span class="button-label">{label.Add_button}</span>
+      </button>
+    </lightning-layout-item>
+  </lightning-layout>
+
+  <lightning-accordion allow-multiple-sections-open>
+    <lightning-accordion-section
+      for:each={groups}
+      for:item="group"
+      key={group.g.Id}
+      label={group.g.Name}
+    >
+      <c-group
+        group={group}
+        ongroupdelete={handleGroupDelete}
+        onmemberadd={handleMemberAdd}
+        onmemberdelete={handleMemberDelete}
+      ></c-group>
+    </lightning-accordion-section>
+  </lightning-accordion>
+</template>

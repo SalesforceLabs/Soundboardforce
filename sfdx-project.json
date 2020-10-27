@@ -1,0 +1,17 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "Soundboardforce",
+      "versionNumber": "0.3.0.0"
+    }
+  ],
+  "namespace": "dcstuff",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "48.0",
+  "packageAliases": {
+    "Soundboardforce": "0Ho1Q0000008OJmSAM",
+    "Soundboardforce@0.3.0-0": "04t1Q000000lqAZQAY"
+  }
+}

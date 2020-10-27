@@ -1,0 +1,169 @@
+/*
+ * Copyright (c) 2020, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+
+.button-wrapper {
+  width: 100%;
+}
+
+.buttons {
+  background-color: white;
+  margin-left: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.btn-toolbar {
+  display: inline-block;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.btn-isactive {
+  padding: 4px 8px;
+}
+
+.divider {
+  color: #706e6b;
+}
+
+ul {
+  display: inline;
+  margin-left: 8px;
+}
+
+li {
+  display: inline;
+}
+
+.sound-wrapper {
+  overflow-y: scroll;
+  height: 369px;
+  background-color: #706e6b;
+}
+
+.restore-sounds {
+  background-color: #e5f0fa;
+  border-top: 2px solid #0070d2;
+  border-bottom: 2px solid #0070d2;
+  cursor: default;
+  font-weight: bold;
+  width: 100%;
+}
+
+.subpanel {
+  height: 379px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.subpanel-title {
+  font-weight: bold;
+}
+
+.send-to {
+  background-color: white;
+  cursor: default;
+  line-height: 32px;
+  padding: 0 8px;
+}
+
+.send-to-name {
+  width: 0px;
+}
+
+.poweroff {
+  color: white;
+  font-weight: bold;
+  width: 327px;
+  background-color: rgb(0, 112, 210, 0.8);
+  position: absolute;
+  height: 369px;
+  text-align: center;
+  font-size: 40px;
+  padding: 0 16px;
+}
+
+.notification {
+  width: 327px;
+  background-color: rgb(0, 112, 210, 0.8);
+  color: white;
+  opacity: 0;
+  z-index: -1;
+  padding: 3px 8px 0;
+  position: absolute;
+  height: 80px;
+  overflow-y: hidden;
+}
+
+.notification-message {
+  font-weight: bold;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  99% {
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  99% {
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  99% {
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+}
+
+.show-notification {
+  -webkit-animation: fadeOut 7s 1;
+  -moz-animation: fadeOut 7s 1;
+  -o-animation: fadeOut 7s 1;
+  animation: fadeOut 7s 1;
+}

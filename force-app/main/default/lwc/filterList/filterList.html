@@ -1,0 +1,59 @@
+<!--
+  Copyright (c) 2020, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<template>
+  <lightning-input
+    type="checkbox"
+    checked={isEnabled}
+    label={label.List_enabled}
+    onchange={handleFilterChange}
+  ></lightning-input>
+
+  <c-lookup
+    class="slds-m-top_medium"
+    filter-list={list}
+    skip-yourself="true"
+    onoptionselect={handleOptionSelect}
+  ></c-lookup>
+
+  <div if:true={list.length} class="slds-m-top_small">
+    <template for:each={list} for:item="user">
+      <lightning-layout key={user.Id} horizontal-align="spread">
+        <lightning-layout-item class="slds-has-flexi-truncate">
+          <div class="slds-media slds-p-bottom_small">
+            <div class="slds-media__figure">
+              <span class="slds-avatar slds-avatar_circle slds-avatar_x-small">
+                <img src={user.dcstuff__User__r.SmallPhotoUrl} />
+              </span>
+            </div>
+
+            <div
+              class="slds-media__body slds-truncate"
+              title={user.dcstuff__User__r.Name}
+            >
+              {user.dcstuff__User__r.Name}
+            </div>
+          </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item>
+          <lightning-icon
+            icon-name="utility:delete"
+            size="x-small"
+            class="slds-align_absolute-center"
+            alternative-text={label.Remove_list_user}
+            role="button"
+            tabindex="0"
+            data-value={user.Id}
+            onclick={handleUserDelete}
+            onkeydown={handleUserDeleteKeyDown}
+          ></lightning-icon>
+        </lightning-layout-item>
+      </lightning-layout>
+    </template>
+  </div>
+</template>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Add_button</fullName>
+        <categories>groups</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add button</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>Add_group</fullName>
+        <categories>groups</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add group</shortDescription>
+        <value>Add group</value>
+    </labels>
+    <labels>
+        <fullName>Add_member</fullName>
+        <categories>group</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add member</shortDescription>
+        <value>Add member</value>
+    </labels>
+    <labels>
+        <fullName>Allow_anonymous_alt_text</fullName>
+        <categories>button, alt text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Allow anonymous alt text</shortDescription>
+        <value>Allow anonymous senders</value>
+    </labels>
+    <labels>
+        <fullName>Allowlist</fullName>
+        <categories>subpanel</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Allowlist</shortDescription>
+        <value>Allowlist</value>
+    </labels>
+    <labels>
+        <fullName>Back_to_sounds</fullName>
+        <categories>subpanel</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Back to sounds</shortDescription>
+        <value>BACK TO SOUNDS</value>
+    </labels>
+    <labels>
+        <fullName>Blocklist</fullName>
+        <categories>subpanel</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Blocklist</shortDescription>
+        <value>Blocklist</value>
+    </labels>
+    <labels>
+        <fullName>Clear_input</fullName>
+        <categories>lookup</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clear input</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Delete_group</fullName>
+        <categories>group</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete group</shortDescription>
+        <value>Delete group</value>
+    </labels>
+    <labels>
+        <fullName>Group_full</fullName>
+        <categories>group</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Group full</shortDescription>
+        <value>Group full!</value>
+    </labels>
+    <labels>
+        <fullName>Input_placeholder</fullName>
+        <categories>lookup</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Input placeholder</shortDescription>
+        <value>Search...</value>
+    </labels>
+    <labels>
+        <fullName>List_enabled</fullName>
+        <categories>filter list</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>List enabled</shortDescription>
+        <value>Enabled</value>
+    </labels>
+    <labels>
+        <fullName>Loading_spinner_alt_text</fullName>
+        <categories>alt text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loading spinner alt text</shortDescription>
+        <value>Loading...</value>
+    </labels>
+    <labels>
+        <fullName>Lookup_label_user</fullName>
+        <categories>lookup</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Lookup label user</shortDescription>
+        <value>Select user</value>
+    </labels>
+    <labels>
+        <fullName>Lookup_label_user_or_group</fullName>
+        <categories>lookup</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Lookup label user or group</shortDescription>
+        <value>Select user or group</value>
+    </labels>
+    <labels>
+        <fullName>Manage_groups</fullName>
+        <categories>subpanel</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Manage groups</shortDescription>
+        <value>Manage groups</value>
+    </labels>
+    <labels>
+        <fullName>Members</fullName>
+        <categories>group</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Members</shortDescription>
+        <value>members</value>
+    </labels>
+    <labels>
+        <fullName>Missing_permission_set</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Missing_permission_set</shortDescription>
+        <value
+    >You do not have the required permission set to use Soundboardforce</value>
+    </labels>
+    <labels>
+        <fullName>No_matter_what_alt_text</fullName>
+        <categories>button, alt text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No matter what alt text</shortDescription>
+        <value>Play even if tab does not have focus</value>
+    </labels>
+    <labels>
+        <fullName>Notification_from_anonymous</fullName>
+        <categories>notification</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Notification_from_anonymous</shortDescription>
+        <value>"Anonymous" sent you {1}</value>
+    </labels>
+    <labels>
+        <fullName>Notification_from_person</fullName>
+        <categories>notification</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Notification_from_person</shortDescription>
+        <value>{0} sent you {1}</value>
+    </labels>
+    <labels>
+        <fullName>Play_own_alt_text</fullName>
+        <categories>button, alt text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Play own alt text</shortDescription>
+        <value>Play sounds you send</value>
+    </labels>
+    <labels>
+        <fullName>Power_button</fullName>
+        <categories>button, title</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Power button</shortDescription>
+        <value>Power</value>
+    </labels>
+    <labels>
+        <fullName>Power_off</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Power off</shortDescription>
+        <value>POWER OFF</value>
+    </labels>
+    <labels>
+        <fullName>Remove_list_user</fullName>
+        <categories>filter list</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove list user</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>Remove_member</fullName>
+        <categories>group member</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove member</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>Search_spinner_alt_text</fullName>
+        <categories>lookup, alt text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search spinner alt text</shortDescription>
+        <value>Searching</value>
+    </labels>
+    <labels>
+        <fullName>Send_anonymously_alt_text</fullName>
+        <categories>button, alt text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send anonymously alt text</shortDescription>
+        <value>Send sound anonymously</value>
+    </labels>
+    <labels>
+        <fullName>Send_to</fullName>
+        <categories>subpanel</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send to</shortDescription>
+        <value>Send to</value>
+    </labels>
+    <labels>
+        <fullName>Turn_on_sound_alt_text</fullName>
+        <categories>button, alt text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Turn on sound alt text</shortDescription>
+        <value>Turn on sound</value>
+    </labels>
+    <labels>
+        <fullName>You</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You</shortDescription>
+        <value>You</value>
+    </labels>
+</CustomLabels>

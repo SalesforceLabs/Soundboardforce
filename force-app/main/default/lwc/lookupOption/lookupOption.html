@@ -1,0 +1,36 @@
+<!--
+  Copyright (c) 2020, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<template>
+  <div
+    class={optionClass}
+    role="option"
+    onclick={handleClick}
+    onmouseenter={handleMouseEnter}
+    onmouseleave={handleMouseLeave}
+    aria-selected={ariaSelectedClass}
+  >
+    <span class="slds-media__figure slds-listbox__option-icon">
+      <span class="slds-avatar slds-avatar_circle slds-avatar_x-small">
+        <img if:true={item.picture} src={item.picture} />
+      </span>
+
+      <lightning-icon
+        if:false={item.picture}
+        icon-name="utility:groups"
+        size="x-small"
+        class="slds-p-right_xx-small"
+      ></lightning-icon>
+    </span>
+
+    <span class="slds-media__body">
+      <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+        <c-marker search-term={searchTerm} text={item.label}></c-marker>
+      </span>
+    </span>
+  </div>
+</template>
