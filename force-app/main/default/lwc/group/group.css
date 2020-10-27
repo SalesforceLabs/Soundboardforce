@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2020, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+
+c-group-member {
+  display: block;
+}
+
+button {
+  max-width: 100%;
+}
+
+.button-label {
+  overflow-wrap: anywhere;
+}
+
+.member-count {
+  overflow-wrap: anywhere;
+}
+
+.add-button-wrapper {
+  padding-right: 2px;
+}
+
+.delete-button-wrapper {
+  padding-left: 2px;
+  text-align: right;
+}

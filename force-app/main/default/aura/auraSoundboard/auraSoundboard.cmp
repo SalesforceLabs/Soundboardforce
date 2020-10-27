@@ -1,0 +1,20 @@
+<!--
+  Copyright (c) 2020, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<aura:component implements="lightning:utilityItem" access="global">
+  <aura:attribute name="supportsPopOut" type="Boolean" default="false" />
+  <aura:attribute name="isClicked" type="Boolean" default="false" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <lightning:utilityBarAPI aura:id="utilitybar" />
+
+  <c:soundboard
+    isOpen="{!v.isClicked}"
+    onsoundincoming="{!c.handleSoundIncoming}"
+  />
+</aura:component>

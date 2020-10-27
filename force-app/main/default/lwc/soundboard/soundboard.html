@@ -1,0 +1,313 @@
+<!--
+  Copyright (c) 2020, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<template>
+  <div if:true={noPermiso} class="noPermiso">
+    <img src={missingPermissionsImage} alt={label.Missing_permission_set} />
+  </div>
+
+  <template if:true={isLoading}>
+    <lightning-spinner
+      size="large"
+      alternative-text={label.Loading_spinner_alt_text}
+      variant="brand"
+    ></lightning-spinner>
+  </template>
+
+  <div if:false={noPermiso} class={containerClass}>
+    <lightning-layout multiple-rows="true">
+      <lightning-layout-item class="button-wrapper">
+        <lightning-layout horizontal-align="spread" class="buttons">
+          <lightning-layout-item>
+            <lightning-button-icon-stateful
+              alternative-text={label.Turn_on_sound_alt_text}
+              class="btn-toolbar btn-sound"
+              data-field="dcstuff__IsSoundOn__c"
+              icon-name="utility:volume_high"
+              onclick={toggleSetting}
+              selected={soundboard.s.dcstuff__IsSoundOn__c}
+              size="small"
+            ></lightning-button-icon-stateful>
+
+            <lightning-button-icon-stateful
+              alternative-text={label.Allow_anonymous_alt_text}
+              class="btn-toolbar btn-allow-anonymous"
+              data-field="dcstuff__AllowsAnonymous__c"
+              icon-name="utility:question"
+              selected={soundboard.s.dcstuff__AllowsAnonymous__c}
+              onclick={toggleSetting}
+              size="small"
+            ></lightning-button-icon-stateful>
+
+            <lightning-button-icon-stateful
+              alternative-text={label.Play_own_alt_text}
+              class="btn-toolbar btn-play-own-sounds"
+              data-field="dcstuff__PlayOwnSounds__c"
+              icon-name="utility:chat"
+              onclick={toggleSetting}
+              selected={soundboard.s.dcstuff__PlayOwnSounds__c}
+              size="small"
+            ></lightning-button-icon-stateful>
+
+            <lightning-button-icon-stateful
+              alternative-text={label.No_matter_what_alt_text}
+              class="btn-toolbar btn-no-matter-what"
+              data-field="dcstuff__NoMatterWhat__c"
+              icon-name="utility:broadcast"
+              onclick={toggleSetting}
+              selected={soundboard.s.dcstuff__NoMatterWhat__c}
+              size="small"
+            ></lightning-button-icon-stateful>
+
+            <span class="divider"> | </span>
+
+            <ul role="tablist">
+              <li title={label.Manage_groups} role="presentation">
+                <lightning-button-icon-stateful
+                  alternative-text={label.Manage_groups}
+                  aria-controls="btn-groups"
+                  aria-selected={showGroups}
+                  class="btn-toolbar btn-groups"
+                  icon-name="utility:groups"
+                  id="tab__groups"
+                  onclick={handleGroupsClick}
+                  onkeydown={handleGroupsKeyDown}
+                  role="tab"
+                  selected={showGroups}
+                  size="small"
+                  tabindex={showGroupsTabindex}
+                ></lightning-button-icon-stateful>
+              </li>
+
+              <li title={label.Allowlist} role="presentation">
+                <lightning-button-icon-stateful
+                  alternative-text={label.Allowlist}
+                  aria-controls="btn-allowlist"
+                  aria-selected={showAllowlist}
+                  class="btn-toolbar btn-allowlist"
+                  icon-name="utility:adduser"
+                  id="tab__allowlist"
+                  onclick={handleAllowlistClick}
+                  onkeydown={handleAllowlistKeyDown}
+                  role="tab"
+                  selected={showAllowlist}
+                  size="small"
+                  tabindex={showAllowlistTabindex}
+                ></lightning-button-icon-stateful>
+              </li>
+
+              <li title={label.Blocklist} role="presentation">
+                <lightning-button-icon-stateful
+                  alternative-text={label.Blocklist}
+                  aria-controls="btn-blocklist"
+                  aria-selected={showBlocklist}
+                  class="btn-toolbar btn-blocklist"
+                  icon-name="utility:block_visitor"
+                  id="tab__blocklist"
+                  onclick={handleBlocklistClick}
+                  onkeydown={handleBlocklistKeyDown}
+                  role="tab"
+                  selected={showBlocklist}
+                  size="small"
+                  tabindex={showBlocklistTabindex}
+                ></lightning-button-icon-stateful>
+              </li>
+            </ul>
+          </lightning-layout-item>
+
+          <lightning-layout-item>
+            <lightning-input
+              class="btn-isactive"
+              label={label.Power_button}
+              type="toggle"
+              variant="label-hidden"
+              checked={soundboard.s.dcstuff__IsActive__c}
+              onchange={toggleIsActive}
+              message-toggle-active=""
+              message-toggle-inactive=""
+            ></lightning-input>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+
+      <lightning-layout-item
+        class="slds-align_absolute-center restore-sounds"
+        if:false={showSounds}
+        role="button"
+        tabindex="0"
+        onclick={restoreSounds}
+        onkeydown={restoreSoundsKeyDown}
+      >
+        <span class="slds-truncate slds-p-horizontal_x-small"
+          >{label.Back_to_sounds}</span
+        >
+      </lightning-layout-item>
+
+      <lightning-layout-item
+        if:false={showSounds}
+        class="subpanel"
+        role="tabpanel"
+      >
+        <div class="slds-p-horizontal_small">
+          <div
+            class="subpanel-title slds-text-heading_small slds-p-vertical_x-small slds-truncate"
+          >
+            {subpanelTitle}
+          </div>
+
+          <c-groups
+            if:true={showGroups}
+            groups={soundboard.groups}
+            ongroupadd={handleGroupAdd}
+            ongroupdelete={handleGroupDelete}
+            onmemberadd={handleMemberAdd}
+            onmemberdelete={handleMemberDelete}
+          ></c-groups>
+
+          <c-filter-list
+            if:true={showAllowlist}
+            filter-type="Allowlist"
+            list={soundboard.allowlistUsers}
+            is-enabled={soundboard.s.dcstuff__IsAllowlistEnabled__c}
+            onfilterchange={handleFilterChange}
+            onuseradd={handleAllowlistUserAdd}
+            onuserdelete={handleAllowlistUserDelete}
+          ></c-filter-list>
+
+          <c-filter-list
+            if:true={showBlocklist}
+            filter-type="Blocklist"
+            list={soundboard.blocklistUsers}
+            is-enabled={soundboard.s.dcstuff__IsBlocklistEnabled__c}
+            onfilterchange={handleFilterChange}
+            onuseradd={handleBlocklistUserAdd}
+            onuserdelete={handleBlocklistUserDelete}
+          ></c-filter-list>
+
+          <c-lookup
+            if:true={showSendTo}
+            onoptionselect={handleOptionSelect}
+          ></c-lookup>
+        </div>
+      </lightning-layout-item>
+
+      <lightning-layout-item>
+        <div>
+          <div class={notificationClass} role="status">
+            <template iterator:it={notifications}>
+              <div key={it.value.key} class="slds-align_absolute-center">
+                <div class="slds-truncate">
+                  <lightning-formatted-rich-text
+                    if:true={it.first}
+                    class="notification-message"
+                    value={it.value.message}
+                  ></lightning-formatted-rich-text>
+                  <lightning-formatted-rich-text
+                    if:false={it.first}
+                    class="notification-message"
+                    value={it.value.message}
+                    aria-hidden="true"
+                  ></lightning-formatted-rich-text>
+                </div>
+              </div>
+            </template>
+          </div>
+
+          <div
+            if:true={showPowerOff}
+            class="poweroff slds-align_absolute-center slds-has-flexi-truncate"
+          >
+            <span class="slds-truncate">{label.Power_off}</span>
+          </div>
+
+          <div
+            class={soundWrapperClass}
+            role="grid"
+            aria-labelledby="sound-grid"
+          >
+            <div role="row">
+              <template iterator:it={sounds}>
+                <span key={it.value.url} role="gridcell">
+                  <c-sound
+                    if:true={it.first}
+                    class="slds-hidden"
+                    data-index={it.index}
+                    sound={it.value}
+                    onkeydown={handleSoundKeyDown}
+                    onsoundclicked={handleSoundClick}
+                  ></c-sound>
+                  <c-sound
+                    if:false={it.first}
+                    class="slds-hidden"
+                    data-index={it.index}
+                    sound={it.value}
+                    onkeydown={handleSoundKeyDown}
+                    onsoundclicked={handleSoundClick}
+                    tabindex="-1"
+                  ></c-sound>
+                </span>
+              </template>
+            </div>
+          </div>
+        </div>
+      </lightning-layout-item>
+
+      <lightning-layout-item
+        if:true={showSounds}
+        flexibility="grow"
+        class="send-to"
+      >
+        <lightning-layout vertical-align="center">
+          <lightning-layout-item
+            flexibility="grow"
+            class="btn-send-to slds-media"
+            role="button"
+            tabindex="0"
+            onclick={handleSendToClick}
+            onkeydown={handleSendToKeyDown}
+          >
+            <div class="slds-media__figure">
+              <span class="slds-avatar slds-avatar_circle slds-avatar_x-small">
+                <img if:true={soundboard.photoUrl} src={soundboard.photoUrl} />
+
+                <lightning-icon
+                  if:false={soundboard.photoUrl}
+                  icon-name="utility:groups"
+                  size="small"
+                ></lightning-icon>
+              </span>
+            </div>
+
+            <div class="slds-media__body">
+              <lightning-layout horizontal-align="spread">
+                <lightning-layout-item
+                  flexibility="grow"
+                  class="slds-truncate send-to-name"
+                  title={sendToName}
+                >
+                  {sendToName}
+                </lightning-layout-item>
+              </lightning-layout>
+            </div>
+          </lightning-layout-item>
+
+          <lightning-layout-item>
+            <lightning-button-icon-stateful
+              alternative-text={label.Send_anonymously_alt_text}
+              class="btn-send-anonymous slds-align_absolute-center"
+              data-field="dcstuff__SendAnonymous__c"
+              icon-name="utility:question"
+              selected={soundboard.s.dcstuff__SendAnonymous__c}
+              onclick={toggleSetting}
+              size="small"
+            ></lightning-button-icon-stateful>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+</template>

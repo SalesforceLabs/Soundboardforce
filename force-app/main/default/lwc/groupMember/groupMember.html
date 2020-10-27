@@ -1,0 +1,41 @@
+<!--
+  Copyright (c) 2020, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<template>
+  <lightning-layout horizontal-align="spread">
+    <lightning-layout-item class="slds-has-flexi-truncate">
+      <div class="slds-media slds-p-bottom_small">
+        <div class="slds-media__figure">
+          <span class="slds-avatar slds-avatar_circle slds-avatar_x-small">
+            <img src={member.dcstuff__User__r.SmallPhotoUrl} />
+          </span>
+        </div>
+
+        <div
+          class="slds-media__body slds-truncate"
+          title={member.dcstuff__User__r.Name}
+        >
+          {member.dcstuff__User__r.Name}
+        </div>
+      </div>
+    </lightning-layout-item>
+
+    <lightning-layout-item>
+      <lightning-icon
+        icon-name="utility:delete"
+        size="x-small"
+        class="slds-align_absolute-center"
+        alternative-text={label.Remove_member}
+        role="button"
+        tabindex="0"
+        data-value={member.Id}
+        onclick={handleMemberDelete}
+        onkeydown={handleMemberDeleteKeyDown}
+      ></lightning-icon>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>
