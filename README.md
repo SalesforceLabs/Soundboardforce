@@ -70,7 +70,7 @@ Only my mom sends sounds to one person at a time. Create groups of up to 30 peop
 
 <img src="./readme-extras/adduser_60.png" width="32" height="32" style="vertical-align: middle" />&nbsp; ***Allowlist***
 <br />
-Configure and enable an allowlist and Soundboardforce will restrict playing sounds to only people on that list. Being on an allowlist can be overridden by also being on a blocklist. Only users with the Soundboardforce User permission set can be added to the allowlist.
+Configure and enable an allowlist and Soundboardforce will restrict playing sounds to people on that list. Being on an allowlist can be overridden by also being on a blocklist. Only users with the Soundboardforce User permission set can be added to the allowlist.
 
 <img src="./readme-extras/block_visitor_60.png" width="32" height="32" style="vertical-align: middle" />&nbsp; ***Blocklist***
 <br />
@@ -94,7 +94,7 @@ More sounds are coming to Soundboardforce... eventually. If you'd rather not wai
 
 Complete the following steps to add a custom sound: (I will not be providing a mountain of detail)
 
-1. Upload a new static resource with your sound
+1. Upload a new static resource with your sound.
 2. Upload a new static resource with the associated image. We at Soundboardforce Productions Inc Corp Ltd recommend a square image with sides 112 pixels in length. An image with different dimensions could (it will) create a blackhole and doom us all.
 3. Time to get coding! Open `force-app\main\default\lwc\soundboard\sounds.js`.
 4. Import your two new static resources.
