@@ -250,7 +250,7 @@ public with sharing class SoundboardUtilities {
     Boolean searchGroups,
     Boolean skipYourself
   ) {
-    String newSearchTerm = '%' + searchTerm + '%';
+    String newSearchTerm = '%' + String.escapeSingleQuotes(searchTerm) + '%';
     List<SendToOption> options = new List<SendToOption>();
 
     for (

@@ -4,7 +4,7 @@
       "path": "force-app",
       "default": true,
       "package": "Soundboardforce",
-      "versionNumber": "0.3.0.0"
+      "versionNumber": "0.4.0.0"
     }
   ],
   "namespace": "dcstuff",
@@ -12,6 +12,6 @@
   "sourceApiVersion": "48.0",
   "packageAliases": {
     "Soundboardforce": "0Ho1Q0000008OJmSAM",
-    "Soundboardforce@0.3.0-0": "04t1Q000000lqAZQAY"
+    "Soundboardforce@0.4.0-0": "04t1Q000000lqAyQAI"
   }
 }
